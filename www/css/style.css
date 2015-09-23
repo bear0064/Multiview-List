@@ -1,4 +1,9 @@
 /* Empty. Add your own CSS if you like */
+
+.item-checkbox {
+    padding-left: 0px;
+}
+
 .tabs-striped .tab-item {
     margin-top: 1px;
     font-size: 12px;
@@ -20,4 +25,12 @@
 .item-checkbox .checkbox{
     width: 300px;
     
+}
+
+.item-complex .item-content, .item-radio .item-content {
+    position: relative;
+    z-index: 2;
+    padding: 16px 49px 16px 59px;
+    border: none;
+    background-color: #fff;
 }

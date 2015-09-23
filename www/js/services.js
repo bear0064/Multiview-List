@@ -18,7 +18,25 @@ angular.module('starter.services', ['ionic'])
     done: false
   }];
   localStorage.setItem('list1', JSON.stringify($scope.list1s));
-        
+
+   
+ 
+    
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.list1s.splice(fromIndex, 1);
+    $scope.list1s.splice(toIndex, 0, item);
+    localStorage.clear('list1');
+    localStorage.setItem('list1', JSON.stringify($scope.list1s));
+  };
+    
+    
+  $scope.onItemDelete = function(item) {
+    $scope.list1s.splice($scope.list1s.indexOf(item), 1);
+      localStorage.clear('list1');
+    localStorage.setItem('list1', JSON.stringify($scope.list1s));
+  };    
+    
+    
   $scope.addTodo = function() {
             
     $scope.list1s.push({
@@ -106,6 +124,22 @@ angular.module('starter.services', ['ionic'])
   }];
   localStorage.setItem('list2', JSON.stringify($scope.list2s));
         
+    
+ 
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.list2s.splice(fromIndex, 1);
+    $scope.list2s.splice(toIndex, 0, item);
+    localStorage.clear('list2');
+    localStorage.setItem('list2', JSON.stringify($scope.list2s));
+  };
+        
+      $scope.onItemDelete = function(item) {
+    $scope.list2s.splice($scope.list2s.indexOf(item), 1);
+      localStorage.clear('list2');
+    localStorage.setItem('list2', JSON.stringify($scope.list2s));
+  };    
+    
+    
   $scope.addTodo = function() {
             
     $scope.list2s.push({
@@ -192,6 +226,20 @@ angular.module('starter.services', ['ionic'])
   }];
   localStorage.setItem('list3', JSON.stringify($scope.list3s));
         
+     
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.list3s.splice(fromIndex, 1);
+    $scope.list3s.splice(toIndex, 0, item);
+    localStorage.clear('list3');
+    localStorage.setItem('list3', JSON.stringify($scope.list3s));
+  };
+    
+      $scope.onItemDelete = function(item) {
+    $scope.list3s.splice($scope.list3s.indexOf(item), 1);
+      localStorage.clear('list3');
+    localStorage.setItem('list3', JSON.stringify($scope.list3s));
+  };    
+    
   $scope.addTodo = function() {
             
     $scope.list3s.push({
@@ -257,3 +305,20 @@ angular.module('starter.services', ['ionic'])
 
 })
 
+
+
+
+
+//.controller('MyCtrl', function($scope) {
+//  
+//  $scope.data = {
+//    showDelete: false
+//  };
+//  
+//
+//  
+//  $scope.onItemDelete = function(item) {
+//    $scope.items.splice($scope.items.indexOf(item), 1);
+//  };
+//  
+//});

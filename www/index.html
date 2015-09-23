@@ -23,14 +23,17 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-  <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
+  <body ng-app="starter" ng-controller="MyCtrl">
+    
+<ion-nav-bar class="has-tabs-top bar-assertive">  
+    <ion-nav-buttons side="primary">
+      <button class="button button-icon-left icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      <button class="button button-icon icon ion-navicon" ng-click="data.showDelete = false; data.showReorder = !data.showReorder"></button>
+</ion-nav-buttons>
+</ion-nav-bar>  
+        
+      
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

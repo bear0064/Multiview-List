@@ -2,7 +2,7 @@
 <ion-content ion-content has-header has-footer>
     <!-- list1 and list1 items -->
 
-    <ion-list>
+    <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 
       <ion-item ng-repeat="list1 in list1s track by $index" class="item item-checkbox item-button-right">
 
@@ -11,16 +11,16 @@
         </label>
         {{list1.text}}
 
-        <button class="button button-clear trash" ng-click="archive()">
-          <i class="ion-trash-b"></i>
-        </button>
+    
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(list1)">
+          </ion-delete-button>
+          
+          <ion-reorder-button class="ion-navicon" on-reorder="moveItem(list1, $fromIndex, $toIndex)"></ion-reorder-button>
 
       </ion-item>
 
-        
-
-    
-        
+                    
         
     </ion-list>
 
