@@ -123,6 +123,7 @@ angular.module('starter.services', ['ionic'])
     done: false
   }];
   localStorage.setItem('list2', JSON.stringify($scope.list2s));
+    
         
     
  
@@ -304,21 +305,3 @@ angular.module('starter.services', ['ionic'])
   }
 
 })
-
-
-
-
-
-//.controller('MyCtrl', function($scope) {
-//  
-//  $scope.data = {
-//    showDelete: false
-//  };
-//  
-//
-//  
-//  $scope.onItemDelete = function(item) {
-//    $scope.items.splice($scope.items.indexOf(item), 1);
-//  };
-//  
-//});
