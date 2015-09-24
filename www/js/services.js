@@ -31,10 +31,22 @@ angular.module('starter.services', ['ionic'])
     
     
   $scope.onItemDelete = function(item) {
-    $scope.list1s.splice($scope.list1s.indexOf(item), 1);
-      localStorage.clear('list1');
-    localStorage.setItem('list1', JSON.stringify($scope.list1s));
-  };    
+                      
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Delete',
+            template: 'Are you sure?'
+            });
+          
+          confirmPopup.then(function(res) {
+        if (res) {
+                  $scope.list1s.splice($scope.list1s.indexOf(item), 1);
+                    localStorage.clear('list1');
+                    localStorage.setItem('list1', JSON.stringify($scope.list1s));
+                }
+      
+      });
+      };
+    
     
     
   $scope.addTodo = function() {
@@ -49,59 +61,11 @@ angular.module('starter.services', ['ionic'])
       
     $scope.todoText = ''; //clear the input after adding
       
-  
-    
-    //update list when addeddeddededd
 
 
   };
-
-  /*Delete Funtion*/
-  $scope.archive = function() {
-    
-    var latch = false;
-    var oldTodos = $scope.list1s;
-
-    angular.forEach(oldTodos, function(todo) {
-      if (todo.done) {
-        latch = true;
-        //alert("latch open");
-      }
-    });
-
-    //alert($scope.todos.length);
-    if (latch) {
-      var confirmPopup = $ionicPopup.confirm({
-        title: 'Delete',
-        template: 'Are you sure?'
-      });
-      confirmPopup.then(function(res) {
-        if (res) {
-          $scope.list1s = [];
-
-          angular.forEach(oldTodos, function(todo) {
-            if (!todo.done)
-              $scope.list1s.push(todo);
-          });
-          localStorage.setItem('list1', JSON.stringify($scope.list1s));
-        } else {
-
-        }
-      });
-    } else {
-
-      var alertPopup = $ionicPopup.alert({
-        title: 'Nothing Selected!',
-        template: 'Please select an item.'
-      });
-      alertPopup.then(function(res) {});
-
-    }
-
-  }
-
 })
-  /*end Delete*/
+  
 
 /////////////// Tab Two ///////////////
 
@@ -135,10 +99,21 @@ angular.module('starter.services', ['ionic'])
   };
         
       $scope.onItemDelete = function(item) {
-    $scope.list2s.splice($scope.list2s.indexOf(item), 1);
-      localStorage.clear('list2');
-    localStorage.setItem('list2', JSON.stringify($scope.list2s));
-  };    
+                
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Delete',
+            template: 'Are you sure?'
+            });
+          
+          confirmPopup.then(function(res) {
+        if (res) {
+              $scope.list2s.splice($scope.list2s.indexOf(item), 1);
+                localStorage.clear('list2');
+                localStorage.setItem('list2', JSON.stringify($scope.list2s));
+      }
+      
+      });
+      };    
     
     
   $scope.addTodo = function() {
@@ -153,57 +128,10 @@ angular.module('starter.services', ['ionic'])
       
     $scope.todoText = ''; //clear the input after adding
       
-  
-    
-    //update list when addeddeddededd
+
 
 
   };
-
-  /*Delete Funtion*/
-  $scope.archive = function() {
-    
-    var latch = false;
-    var oldTodos = $scope.list2s;
-
-    angular.forEach(oldTodos, function(todo) {
-      if (todo.done) {
-        latch = true;
-        //alert("latch open");
-      }
-    });
-
-    //alert($scope.todos.length);
-    if (latch) {
-      var confirmPopup = $ionicPopup.confirm({
-        title: 'Delete',
-        template: 'Are you sure?'
-      });
-      confirmPopup.then(function(res) {
-        if (res) {
-          $scope.list2s = [];
-
-          angular.forEach(oldTodos, function(todo) {
-            if (!todo.done)
-              $scope.list2s.push(todo);
-          });
-          localStorage.setItem('list2', JSON.stringify($scope.list2s));
-        } else {
-
-        }
-      });
-    } else {
-
-      var alertPopup = $ionicPopup.alert({
-        title: 'Nothing Selected!',
-        template: 'Please select an item.'
-      });
-      alertPopup.then(function(res) {});
-
-    }
-
-  }
-
 })
 
 
@@ -236,11 +164,22 @@ angular.module('starter.services', ['ionic'])
   };
     
       $scope.onItemDelete = function(item) {
-    $scope.list3s.splice($scope.list3s.indexOf(item), 1);
-      localStorage.clear('list3');
-    localStorage.setItem('list3', JSON.stringify($scope.list3s));
-  };    
+          
+          var confirmPopup = $ionicPopup.confirm({
+            title: 'Delete',
+            template: 'Are you sure?'
+            });
+          
+            confirmPopup.then(function(res) {
+                if (res) {
+                  $scope.list3s.splice($scope.list3s.indexOf(item), 1);
+                localStorage.clear('list3');
+                localStorage.setItem('list3', JSON.stringify($scope.list3s));          
+            }   
+        });
+      };
     
+          
   $scope.addTodo = function() {
             
     $scope.list3s.push({
@@ -253,55 +192,7 @@ angular.module('starter.services', ['ionic'])
       
     $scope.todoText = ''; //clear the input after adding
       
-  
-    
-    //update list when addeddeddededd
 
 
   };
-
-  /*Delete Funtion*/
-  $scope.archive = function() {
-    
-    var latch = false;
-    var oldTodos = $scope.list3s;
-
-    angular.forEach(oldTodos, function(todo) {
-      if (todo.done) {
-        latch = true;
-        //alert("latch open");
-      }
-    });
-
-    //alert($scope.todos.length);
-    if (latch) {
-      var confirmPopup = $ionicPopup.confirm({
-        title: 'Delete',
-        template: 'Are you sure?'
-      });
-      confirmPopup.then(function(res) {
-        if (res) {
-          $scope.list3s = [];
-
-          angular.forEach(oldTodos, function(todo) {
-            if (!todo.done)
-              $scope.list3s.push(todo);
-          });
-          localStorage.setItem('list3', JSON.stringify($scope.list3s));
-        } else {
-
-        }
-      });
-    } else {
-
-      var alertPopup = $ionicPopup.alert({
-        title: 'Nothing Selected!',
-        template: 'Please select an item.'
-      });
-      alertPopup.then(function(res) {});
-
-    }
-
-  }
-
 })
